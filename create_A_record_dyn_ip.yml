@@ -1,0 +1,25 @@
+---
+- name: Infoblox config
+  hosts: nios
+  connection: local
+  gather_facts: false
+
+  collections:
+    - infoblox.nios_modules
+    
+  tasks:
+
+    - name: Setting up provider values
+      set_fact:
+       provider:
+        host: "{{ nios }}"
+        validate_certs: "False"
+
+    - name: dynamically add a record to next available ip
+      infoblox.nios_modules.nios_a_record:
+        name: a.ansible.com
+        ipv4: {nios_next_ip: 192.168.10.0/24}
+        comment: this is an optional test comment
+        state: present
+        provider: "{{ provider }}"
+      connection: local
