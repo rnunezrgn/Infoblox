@@ -1,6 +1,6 @@
 ---
 - name: Infoblox config
-  hosts: nios
+  hosts: localhost
   connection: local
   gather_facts: false
 
