@@ -12,7 +12,7 @@
     - name: Setting up provider values
       set_fact:
        provider:
-        host: "{{ nios }}"
+        host: 192.168.9.233
         validate_certs: "False"
 
     - name: configure an A record
