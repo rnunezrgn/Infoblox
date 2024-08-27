@@ -8,13 +8,13 @@
     - infoblox.nios_modules
     
   tasks:
-
+  
     - name: Setting up provider values
       set_fact:
        provider:
         host: "{{ nios }}"
         validate_certs: "False"
-
+        
     - name: Configuring a reverse mapping zone
       infoblox.nios_modules.nios_zone:
         name: ansible.com
