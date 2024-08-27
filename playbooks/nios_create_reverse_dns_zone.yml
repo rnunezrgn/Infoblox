@@ -1,23 +1,28 @@
 ---
 - name: Infoblox config
-  hosts: nios
+  hosts: localhost
   connection: local
   gather_facts: false
-
+  vars:
+    dns_arpa_name: "10.10.10.0/24"
+  
   collections:
     - infoblox.nios_modules
     
   tasks:
-
     - name: Setting up provider values
       set_fact:
        provider:
         host: "{{ nios }}"
         validate_certs: "False"
+        http_request_timeout: 30
+        wapi_version: "2.12.2"
+        http_pool_connections: 2
+        max_retries: 9
 
     - name: Configuring a reverse mapping zone
       infoblox.nios_modules.nios_zone:
-        name: 10.10.10.0/24
+        name: "{{ dns_arpa_name }}"
         zone_format: IPV4
         state: present
         provider: "{{ provider }}"
