@@ -9,4 +9,5 @@ You can use a "machine" type credential in Ansible Controller with these playboo
     $ pip3 install infoblox-client
     
 Infoblox NIOS modules on Ansible documentation
+    
     - https://docs.ansible.com/ansible/latest/collections/infoblox/nios_modules/index.html
