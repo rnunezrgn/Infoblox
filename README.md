@@ -13,3 +13,5 @@ You can use a "machine" type credential in Ansible Controller with these playboo
 Infoblox NIOS modules on Ansible documentation
     
     - https://docs.ansible.com/ansible/latest/collections/infoblox/nios_modules/index.html
+    - https://github.com/Infoblox-Development/Infoblox-API-Python/blob/master/infoblox.py
+    - https://www.infoblox.com/wp-content/uploads/infoblox-deployment-guide-automate-infoblox-infrastructure-using-ansible.pdf
