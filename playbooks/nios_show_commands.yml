@@ -1,8 +1,9 @@
 ---
 - name: Run NIOS CLI commands on Infoblox
-  hosts: infoblox
+  hosts: all
   gather_facts: false
-  # Require ansible_ssh_private_key_file var defined ini file, or AAP Machine SSH key credential
+  # make sure to define the variable `ansible_ssh_private_key_file` either in the INI file 
+  # or as part of the SSH key credential for the AAP machine
   
   tasks:
     - name: Run 'show grid status' on Infoblox NIOS
