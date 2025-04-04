@@ -1,0 +1,16 @@
+---
+- name: Run NIOS CLI commands on Infoblox
+  hosts: infoblox
+  gather_facts: false
+  # Require ansible_ssh_private_key_file var defined ini file, or AAP Machine SSH key credential
+  
+  tasks:
+    - name: Run 'show grid status' on Infoblox NIOS
+      ansible.builtin.shell: |
+        ssh -o StrictHostKeyChecking=no {{ nios_username }}@{{ nios_host }} 'show grid status'
+      register: show_grid_status
+      no_log: false  # Set to true if you want to avoid logging sensitive data like passwords
+
+    - name: Show the output of 'show grid status' command
+      debug:
+        msg: "{{ show_grid_status.stdout }}"
